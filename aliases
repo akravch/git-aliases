@@ -1,0 +1,9 @@
+[alias]
+	co = checkout
+	rcm = commit --amend --no-edit
+	rb = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
+	clean-all = !git clean -fdx && git submodule foreach git clean -fdx
+	ca = clean-all
+	adog = log --all --decorate --oneline --graph
+	url = config --get remote.origin.url
+	branch-stale = !(git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}')
